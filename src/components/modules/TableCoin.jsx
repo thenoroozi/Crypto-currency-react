@@ -1,28 +1,35 @@
 //charts
 import chartUp from '../../assets/chart-up.svg'
 import chartDown from '../../assets/chart-down.svg'
+//Loader
+import { RotatingLines } from 'react-loader-spinner';
 
-const TableCoin = ({ coins }) => {
+const TableCoin = ({ coins, isLoading }) => {
 
    return (
       <div>
-         <table>
-            <thead>
-               <tr>
-                  <th>Coin</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>24h</th>
-                  <th>Total Volume</th>
-                  <th></th>
-               </tr>
-            </thead>
-            <tbody>
-               {coins.map(coin =>
-                  <TableRow coin={coin} key={coin.id} />
-               )}
-            </tbody>
-         </table>
+         {isLoading ? <RotatingLines
+            width='50'
+            height='50'
+            strokeWidth="3"
+            strokeColor='#3874ff'/> :
+            <table>
+               <thead>
+                  <tr>
+                     <th>Coin</th>
+                     <th>Name</th>
+                     <th>Price</th>
+                     <th>24h</th>
+                     <th>Total Volume</th>
+                     <th></th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {coins.map(coin =>
+                     <TableRow coin={coin} key={coin.id} />
+                  )}
+               </tbody>
+            </table>}
       </div>
    );
 };
