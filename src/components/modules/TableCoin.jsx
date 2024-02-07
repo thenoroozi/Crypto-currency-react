@@ -5,7 +5,8 @@ import chartDown from '../../assets/chart-down.svg'
 import { RotatingLines } from 'react-loader-spinner';
 //styles
 import styles from "./TableCoin.module.css";
-const TableCoin = ({ coins, isLoading }) => {
+import { useEffect, useState } from 'react';
+const TableCoin = ({ coins, isLoading, currency }) => {
 
    return (
       <div className={styles.container}>
@@ -27,7 +28,7 @@ const TableCoin = ({ coins, isLoading }) => {
                </thead>
                <tbody>
                   {coins.map(coin =>
-                     <TableRow coin={coin} key={coin.id} />
+                     <TableRow coin={coin} key={coin.id} currency={currency} />
                   )}
                </tbody>
             </table>}
@@ -46,7 +47,23 @@ const TableRow = ({
       current_price,
       total_volume,
       price_change_percentage_24h: price_change,
-   } }) => {
+   }, currency }) => {
+
+   const [sign, setSign] = useState("$");
+
+   useEffect(() => {
+      switch (currency) {
+         case "eur":
+            setSign("Є")
+            break;
+         case "jpy":
+            setSign("¥")
+            break;
+         default:
+            setSign("$")
+            break;
+      }
+   }, [sign])
 
    return (
       <tr>
@@ -57,10 +74,10 @@ const TableRow = ({
             </div>
          </td>
          <td>{name}</td>
-         <td>${current_price.toLocaleString()}</td>
+         <td>{sign} {current_price.toLocaleString()}</td>
          <td className={price_change > 0 ? styles.success : styles.error}
          >{price_change.toFixed(2)}%</td>
-         <td>${total_volume.toLocaleString()}</td>
+         <td>{sign} {total_volume.toLocaleString()}</td>
          <td>
             <img src={price_change > 0 ? chartUp : chartDown} />
          </td>
