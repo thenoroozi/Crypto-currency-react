@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 //Api
-import getCoinList from '../../services/cryptoApi.js'
+import { getCoinList } from '../../services/cryptoApi.js'
 
 //components
 import TableCoin from '../modules/TableCoin'
@@ -19,10 +19,14 @@ const HomePage = () => {
    useEffect(() => {
       setIsLoading(true);
       const getData = async () => {
-         const res = await fetch(getCoinList(page, currency));
-         const json = await res.json();
-         setCoins(json);
-         setIsLoading(false);
+         try {
+            const res = await fetch(getCoinList(page, currency));
+            const json = await res.json();
+            setCoins(json);
+            setIsLoading(false);
+         } catch (error) {
+            console.log(error);
+         }
       }
 
       getData();
@@ -32,7 +36,7 @@ const HomePage = () => {
    return (
       <>
          <Search currency={currency} setCurrency={setCurrency} />
-         <TableCoin coins={coins} isLoading={isLoading} currency={currency}/>
+         <TableCoin coins={coins} isLoading={isLoading} currency={currency} />
          <Pagination page={page} setPage={setPage} />
       </>
    );
