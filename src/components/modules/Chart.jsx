@@ -8,7 +8,7 @@ import { CartesianGrid, LineChart, ResponsiveContainer, Line, XAxis, YAxis, Lege
 
 function Chart({ chart, setChart }) {
    const [type, setType] = useState("prices");
-   console.log(convertData(chart, type));;
+
    return (
       <div className={styles.container}>
          <div className={styles.chart}>
@@ -17,7 +17,7 @@ function Chart({ chart, setChart }) {
                <span className={styles.cross} onClick={() => setChart(false)}>X</span>
             </div>
             <div className={styles.graph}>
-               <ChartComponent data={convertData(chart, type )} type={type} />
+               <ChartComponent data={convertData(chart, type)} type={type} />
             </div>
 
          </div>
@@ -32,7 +32,7 @@ const ChartComponent = ({ data, type }) => {
       <>
          <ResponsiveContainer width="100%" height="100%">
             <LineChart width={400} height={400} data={data}>
-               <XAxis dataKey="date" hide />
+               <XAxis dataKey="date" />
                <YAxis dataKey={type} domain={["auto", "auto"]} />
                <Legend />
                <Line type="monotone" dataKey={type} stroke="#3874ff" strokeWidth="2px" />
