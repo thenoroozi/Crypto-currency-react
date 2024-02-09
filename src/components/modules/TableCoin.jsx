@@ -1,11 +1,14 @@
 //charts
 import chartUp from '../../assets/chart-up.svg'
 import chartDown from '../../assets/chart-down.svg'
+//api of charts
+import { marketChart } from '../../services/cryptoApi';
 //Loader
 import { RotatingLines } from 'react-loader-spinner';
 //styles
 import styles from "./TableCoin.module.css";
 import { useEffect, useState } from 'react';
+
 const TableCoin = ({ coins, isLoading, currency, setChart }) => {
 
    return (
@@ -41,6 +44,7 @@ export default TableCoin;
 
 const TableRow = ({
    coin: {
+      id,
       image,
       symbol,
       name,
@@ -65,8 +69,14 @@ const TableRow = ({
       }
    }, [sign])
 
-   const chartHandler = () => {
-      setChart(true);
+   const chartHandler = async () => {
+      try {
+         const res = await fetch(marketChart(id));
+         const json = await res.json();
+         setChart(json);
+      } catch (error) {
+         setChart(null);
+      }
    }
    return (
       <tr>
