@@ -59,7 +59,7 @@ const ChartComponent = ({ data, type }) => {
    return (
       <>
          <ResponsiveContainer width="100%" height="100%">
-            <LineChart width={400} height={400} data={data}>
+            <LineChart width="fit-content" height={400} data={data}>
                <XAxis dataKey="date" />
                <YAxis dataKey={type} domain={["auto", "auto"]} />
                <Legend />

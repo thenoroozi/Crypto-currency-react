@@ -25,7 +25,7 @@
    width: 800px;
    margin: auto;
    padding: 20px;
-   margin-top: 50px;
+   margin-top: 100px;
    background-color: #18181ce6;
    border: 2px solid #404042;
    border-radius: 20px;
@@ -52,11 +52,13 @@
    width: 760px;
    height: 300px;
 }
-.types{
-   margin-top: 20px;
+
+.types {
+   margin-top: 10px;
 }
-.types button{
-   margin: 10px 30px;
+
+.types button {
+   margin: 6px 30px;
    background-color: #18181cdb;
    border: 1px solid #3874ff;
    color: #3874ff;
@@ -65,20 +67,24 @@
    border-radius: 5px;
    cursor: pointer;
 }
-.types .selected{
+
+.types .selected {
    background-color: #3874ff;
    color: #fff;
 }
-.details{
+
+.details {
    display: flex;
    justify-content: space-between;
    margin: 20px 20px 0;
 }
-.details div{
+
+.details div {
    display: flex;
    font-size: 1.1rem;
 }
-.details p{
+
+.details p {
    margin-right: 7px;
    color: #3874ff;
    font-weight: 700;

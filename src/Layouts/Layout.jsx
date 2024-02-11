@@ -6,7 +6,7 @@ function Layout({children}) {
       <header className={styles.header}>
          <h2>Crypto currency</h2>
          <p>
-            <a href="https://github.com/thenoroozi">🔗Thenoroozi</a>
+            <a href="https://github.com/thenoroozi">Thenoroozi</a>
          </p>
       </header>
       {children}
