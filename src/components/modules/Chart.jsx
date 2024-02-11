@@ -9,12 +9,19 @@ import { CartesianGrid, LineChart, ResponsiveContainer, Line, XAxis, YAxis, Lege
 function Chart({ chart, setChart }) {
    const [type, setType] = useState("prices");
 
+   const typeHandler = (event) => {
+      if (event.target.tagName === "BUTTON") {
+         const type = event.target.innerText.toLowerCase().replace(" ", "_")
+         setType(type);
+      }
+   }
+
    return (
       <div className={styles.container}>
          <div className={styles.chart}>
             <div className={styles.chartHead}>
                <div className={styles.chartTitle}>
-                  <img src={chart.coin.image} width={40}/>
+                  <img src={chart.coin.image} width={40} />
                   <h2>{chart.coin.name}</h2>
                </div>
                <span className={styles.cross} onClick={() => setChart(false)}>X</span>
@@ -22,10 +29,10 @@ function Chart({ chart, setChart }) {
             <div className={styles.graph}>
                <ChartComponent data={convertData(chart, type)} type={type} />
             </div>
-            <div className={styles.types}>
-               <button>Prices</button>
-               <button>Market Caps</button>
-               <button>Total Volume</button>
+            <div className={styles.types} onClick={typeHandler}>
+               <button className={type === "prices" ? styles.selected : null}>Prices</button>
+               <button className={type === "market_caps" ? styles.selected : null}>Market Caps</button>
+               <button className={type === "total_volumes" ? styles.selected : null}>Total Volumes</button>
             </div>
             <div className={styles.details}>
                <div>
