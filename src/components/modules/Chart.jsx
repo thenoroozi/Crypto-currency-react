@@ -13,13 +13,34 @@ function Chart({ chart, setChart }) {
       <div className={styles.container}>
          <div className={styles.chart}>
             <div className={styles.chartHead}>
-               <h1>Coin</h1>
+               <div className={styles.chartTitle}>
+                  <img src={chart.coin.image} width={40}/>
+                  <h2>{chart.coin.name}</h2>
+               </div>
                <span className={styles.cross} onClick={() => setChart(false)}>X</span>
             </div>
             <div className={styles.graph}>
                <ChartComponent data={convertData(chart, type)} type={type} />
             </div>
-
+            <div className={styles.types}>
+               <button>Prices</button>
+               <button>Market Caps</button>
+               <button>Total Volume</button>
+            </div>
+            <div className={styles.details}>
+               <div>
+                  <p>Prices: </p>
+                  <span>$ {chart.coin.current_price.toLocaleString()}</span>
+               </div>
+               <div>
+                  <p>ATH: </p>
+                  <span>$ {chart.coin.ath.toLocaleString()}</span>
+               </div>
+               <div>
+                  <p>Market Cap: </p>
+                  <span>{chart.coin.market_cap.toLocaleString()}</span>
+               </div>
+            </div>
          </div>
       </div>
    );
