@@ -6,6 +6,9 @@
   <li>pagination</li>
   <li>show chart in 7days ago base on current price, market cap and total volumes</li>
 </ul>
+<h4>Demo: 
+<a href="https://crypto-currency-sandy.vercel.app/">Crypto Currency</a>
+</h4>
 <h3>Home Page</h3>
 <img src="./public/Crypto app.jpg" />
 <h3>chart</h3>
