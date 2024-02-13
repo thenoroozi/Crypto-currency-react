@@ -6,3 +6,7 @@
   <li>pagination</li>
   <li>show chart in 7days ago base on current price, market cap and total volumes</li>
 </ul>
+<h3>Home Page</h3>
+<img src="./public/Crypto app.jpg" />
+<h3>chart</h3>
+<img src="./public/Crypto app chart.jpg" />
