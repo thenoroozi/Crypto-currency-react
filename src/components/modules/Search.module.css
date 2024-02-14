@@ -40,29 +40,35 @@
 }
 
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
    width: 0px;
    background: transparent;
 }
 
-.searchResult li{
+.searchResult li {
    list-style: none;
    display: flex;
-   margin-bottom: 15px;
-   padding-bottom: 5px;
+   padding: 10px 0;
    border-bottom: 2px solid #22262e;
+   cursor: pointer;
 }
 
-.searchResult li img{
+.searchResult li:hover {
+   color: #a1a1a1;
+}
+
+.searchResult li img {
    margin-right: 10px;
    width: 25px;
    height: 25px;
 }
+
 @media (max-width:600px) {
-   .searchBox input{
-      margin-left:5px;
+   .searchBox input {
+      margin-left: 5px;
    }
-   .searchBox select{
+
+   .searchBox select {
       margin: 10px 5px;
    }
 }
