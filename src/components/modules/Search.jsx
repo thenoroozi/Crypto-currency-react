@@ -7,7 +7,7 @@ import { RotatingLines } from 'react-loader-spinner';
 //styles
 import styles from './Search.module.css';
 
-function Search({ currency, setCurrency }) {
+function Search({ currency, setCurrency, chartHandler }) {
 
    const [text, setText] = useState("");
    const [coins, setCoins] = useState([]);
@@ -56,22 +56,24 @@ function Search({ currency, setCurrency }) {
             <option value="jpy">JPY</option>
          </select>
          {(!!coins.length || isLoading) && (
-         <div className={styles.searchResult}>
-            {isLoading &&
-               <RotatingLines
-                  width='50px'
-                  height="50px"
-                  strokeWidth='2'
-                  strokeColor='#3874ff' />}
-            <ul>
-               {coins.map(coin => (
-                  <li key={coin.id}>
-                     <img src={coin.thumb} alt={coin.name} />
-                     <h4>{coin.name}</h4>
-                  </li>
-               ))}
-            </ul>
-         </div>
+            <div className={styles.searchResult}>
+               {isLoading &&
+                  <RotatingLines
+                     width='50px'
+                     height="50px"
+                     strokeWidth='2'
+                     strokeColor='#3874ff' />}
+               <ul>
+                  {coins.map(coin => (
+                     <li key={coin.id} onClick={() => chartHandler(coin.id)}>
+                        <img src={coin.thumb} alt={coin.name} />
+                        <div>
+                           <h4>{coin.name}</h4>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            </div>
          )}
       </div>
    );
