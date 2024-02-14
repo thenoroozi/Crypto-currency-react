@@ -9,7 +9,7 @@ import { RotatingLines } from 'react-loader-spinner';
 import styles from "./TableCoin.module.css";
 import { useEffect, useState } from 'react';
 
-const TableCoin = ({ coins, isLoading, currency, setChart }) => {
+const TableCoin = ({ coins, isLoading, currency, setChart,chartHandler }) => {
 
    return (
       <div className={styles.container}>
@@ -31,7 +31,7 @@ const TableCoin = ({ coins, isLoading, currency, setChart }) => {
                </thead>
                <tbody>
                   {coins.map(coin =>
-                     <TableRow coin={coin} key={coin.id} currency={currency} setChart={setChart} />
+                     <TableRow coin={coin} key={coin.id} currency={currency} setChart={setChart} chartHandler={chartHandler} />
                   )}
                </tbody>
             </table>}
@@ -42,7 +42,7 @@ const TableCoin = ({ coins, isLoading, currency, setChart }) => {
 export default TableCoin;
 
 
-const TableRow = ({ coin, currency, setChart }) => {
+const TableRow = ({ coin, currency, setChart,chartHandler }) => {
    const {
       id,
       image,
@@ -68,19 +68,11 @@ const TableRow = ({ coin, currency, setChart }) => {
       }
    }, [sign])
 
-   const chartHandler = async () => {
-      try {
-         const res = await fetch(marketChart(id));
-         const json = await res.json();
-         setChart({ ...json, coin });
-      } catch (error) {
-         setChart(null);
-      }
-   }
+   
    return (
       <tr>
          <td>
-            <div className={styles.symbol} onClick={chartHandler}>
+            <div className={styles.symbol} onClick={() => chartHandler(coin.id)}>
                <img src={image} />
                <span>{symbol.toUpperCase()}</span>
             </div>

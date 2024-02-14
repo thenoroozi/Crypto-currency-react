@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 //Api
 import { getCoinList } from '../../services/cryptoApi.js'
+import { marketChart } from '../../services/cryptoApi.js'
 
 //components
 import TableCoin from '../modules/TableCoin'
@@ -33,12 +34,30 @@ const HomePage = () => {
 
       getData();
    }, [page, currency])
-
+   
+   const chartHandler = async (id) => {
+      const coin = coins.find(coin => coin.id ===id);
+      try {
+         const res = await fetch(marketChart(id));
+         const json = await res.json();
+         setChart({ ...json, coin });
+      } catch (error) {
+         setChart(null);
+      }
+   }
 
    return (
       <>
-         <Search currency={currency} setCurrency={setCurrency} />
-         <TableCoin coins={coins} isLoading={isLoading} currency={currency} setChart={setChart} />
+         <Search 
+         currency={currency} 
+         setCurrency={setCurrency} 
+         chartHandler={chartHandler}/>
+         <TableCoin 
+         coins={coins} 
+         isLoading={isLoading} 
+         currency={currency} 
+         setChart={setChart}
+         chartHandler={chartHandler} />
          <Pagination page={page} setPage={setPage} />
          {!!chart && <Chart chart={chart} setChart={setChart} />}
       </>
