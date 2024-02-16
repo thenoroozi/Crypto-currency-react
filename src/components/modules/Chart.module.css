@@ -35,7 +35,7 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   margin-bottom: 20px;
+   margin-bottom: 16px;
 }
 
 .chartTitle {
@@ -54,16 +54,16 @@
 }
 
 .types {
-   margin-top: 10px;
+   margin-top: 6px;
 }
 
 .types button {
-   margin: 6px 30px;
+   margin: 4px 30px;
    background-color: #18181cdb;
    border: 1px solid #3874ff;
    color: #3874ff;
    font-size: 1rem;
-   padding: 5px 10px;
+   padding: 4px 10px;
    border-radius: 5px;
    cursor: pointer;
 }
@@ -76,7 +76,7 @@
 .details {
    display: flex;
    justify-content: space-between;
-   margin: 20px 20px 0;
+   margin: 10px 20px 0;
 }
 
 .details div {

@@ -11,7 +11,6 @@ import Pagination from "../modules/Pagination.jsx";
 import Search from "../modules/Search.jsx";
 import Chart from "../modules/Chart.jsx";
 
-
 const HomePage = () => {
    const [coins, setCoins] = useState([])
    const [isLoading, setIsLoading] = useState(true);
@@ -56,7 +55,6 @@ const HomePage = () => {
          coins={coins} 
          isLoading={isLoading} 
          currency={currency} 
-         setChart={setChart}
          chartHandler={chartHandler} />
          <Pagination page={page} setPage={setPage} />
          {!!chart && <Chart chart={chart} setChart={setChart} />}

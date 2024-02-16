@@ -1,15 +1,13 @@
+import { useEffect, useState } from 'react';
 //charts
 import chartUp from '../../assets/chart-up.svg'
 import chartDown from '../../assets/chart-down.svg'
-//api of charts
-import { marketChart } from '../../services/cryptoApi';
 //Loader
 import { RotatingLines } from 'react-loader-spinner';
 //styles
 import styles from "./TableCoin.module.css";
-import { useEffect, useState } from 'react';
 
-const TableCoin = ({ coins, isLoading, currency, setChart,chartHandler }) => {
+const TableCoin = ({ coins, isLoading, currency, chartHandler }) => {
 
    return (
       <div className={styles.container}>
@@ -31,7 +29,7 @@ const TableCoin = ({ coins, isLoading, currency, setChart,chartHandler }) => {
                </thead>
                <tbody>
                   {coins.map(coin =>
-                     <TableRow coin={coin} key={coin.id} currency={currency} setChart={setChart} chartHandler={chartHandler} />
+                     <TableRow coin={coin} key={coin.id} currency={currency} chartHandler={chartHandler} />
                   )}
                </tbody>
             </table>}
@@ -42,9 +40,8 @@ const TableCoin = ({ coins, isLoading, currency, setChart,chartHandler }) => {
 export default TableCoin;
 
 
-const TableRow = ({ coin, currency, setChart,chartHandler }) => {
+const TableRow = ({ coin, currency, chartHandler }) => {
    const {
-      id,
       image,
       symbol,
       name,
@@ -52,6 +49,7 @@ const TableRow = ({ coin, currency, setChart,chartHandler }) => {
       total_volume,
       price_change_percentage_24h: price_change,
    } = coin;
+
    const [sign, setSign] = useState("$");
 
    useEffect(() => {
@@ -68,7 +66,7 @@ const TableRow = ({ coin, currency, setChart,chartHandler }) => {
       }
    }, [sign])
 
-   
+
    return (
       <tr>
          <td>

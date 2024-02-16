@@ -7,6 +7,7 @@ import { convertData } from '../../helpers/convertData';
 import { CartesianGrid, LineChart, ResponsiveContainer, Line, XAxis, YAxis, Legend, Tooltip } from 'recharts';
 
 function Chart({ chart, setChart }) {
+
    const [type, setType] = useState("prices");
 
    const typeHandler = (event) => {
