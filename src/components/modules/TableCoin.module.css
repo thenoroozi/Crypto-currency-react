@@ -24,11 +24,11 @@
    padding: 10px;
 }
 
-table td {
+.table td {
    padding: 4px 10px;
 }
 
-table tbody tr {
+.table tbody tr {
    height: 56px;
    border-bottom: 1px solid #22262e;
    font-weight: 600;
@@ -58,12 +58,27 @@ table tbody tr {
 }
 
 .error {
-   color: #d33636;
+   color: #f03838;
 }
 
 @media (max-width:600px) {
    .table {
       display: block;
       overflow-x: scroll;
+      border-radius: 0px;
+   }
+   .table th {
+      font-size: 1rem;
+      text-align: left;
+      padding: 8px;
+   }
+   .table tbody tr {
+      height: 56px;
+      border-bottom: 1px solid #22262e;
+      font-weight: 500;
+      font-size: 1rem;
+   }
+   .table td {
+      padding: 0px 10px;
    }
 }

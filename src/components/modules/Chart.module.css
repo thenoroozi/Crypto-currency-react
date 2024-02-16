@@ -89,3 +89,12 @@
    color: #3874ff;
    font-weight: 700;
 }
+
+@media (max-width:600px) {
+   .container {
+     overflow-x: scroll;
+   }
+   .chart{
+      margin: 100px 6px 0;
+   }
+}
