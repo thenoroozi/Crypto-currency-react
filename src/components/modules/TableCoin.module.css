@@ -73,9 +73,6 @@
       padding: 8px;
    }
    .table tbody tr {
-      height: 56px;
-      border-bottom: 1px solid #22262e;
-      font-weight: 500;
       font-size: 1rem;
    }
    .table td {
