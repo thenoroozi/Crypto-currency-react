@@ -7,7 +7,7 @@ body {
    margin: auto;
    max-width: 1000px;
    min-height: 1000px;
-   background-color: #252525;
+   background: linear-gradient(to bottom left,#040C2B,#000D41,#033377);
    color: #fff;
 }
 
