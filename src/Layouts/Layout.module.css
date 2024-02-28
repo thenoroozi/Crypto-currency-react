@@ -1,13 +1,12 @@
 .header {
    padding: 10px 20px;
    margin-bottom: 40px;
+   margin-top: 10px;
    border-radius: 10px;
    display: flex;
    justify-content: space-between;
    align-items: center;
    height: 60px;
-   position: sticky;
-   top: 10px;
    z-index: 1;
 }
 
@@ -22,21 +21,29 @@
    margin-left: 8px;
 }
 
-.header > p{
-  display: flex;
-  align-items: center;
-  font-weight: 600;
+.header>p {
+   display: flex;
+   align-items: center;
+   font-weight: 600;
+   border-radius: 8px;
+   padding: 4px 8px;
+   transition: all 0.2s ease;
 }
-.header > p >img{
+
+.header>p>img {
    width: 30px;
 }
-.header p >a{
+
+.header p>a {
    font-size: 1.1rem;
    margin-left: 6px;
 }
+
 .header p:hover {
-   color: #cfddff;
+   background-color: #353535;
+   box-shadow: 4px 4px 10px #464646;
 }
+
 
 .footer {
    text-align: center;
@@ -67,11 +74,18 @@
       position: static;
       margin-bottom: 15px;
       border-radius: 0;
+      padding: 10px;
    }
-   .title h2{
+
+   .title h2 {
       font-size: 1.1rem;
    }
-   .header p > a{
+
+   .title img {
+      width: 40px;
+   }
+
+   .header p>a {
       font-size: 1rem;
    }
 
