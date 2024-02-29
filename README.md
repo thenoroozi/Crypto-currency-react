@@ -10,6 +10,6 @@
 <a href="https://hn-crypto-currency.vercel.app/">Crypto Currency</a>
 </h4>
 <h3>Home Page</h3>
-<img src="./public/Crypto app.jpg" />
+<img src="./public/Crypto currency.jpg" />
 <h3>chart</h3>
-<img src="./public/Crypto app chart.jpg" />
+<img src="./public/Crypto currency chart.jpg" />
