@@ -9,7 +9,8 @@
 .table {
    width: 100%;
    border-collapse: collapse;
-   background-color: #474747;
+   background-color: #00000066;
+   backdrop-filter: blur(6px);
    border-radius: 10px;
 }
 
