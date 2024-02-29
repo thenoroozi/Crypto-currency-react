@@ -47,13 +47,14 @@ function Search({ currency, setCurrency, chartHandler }) {
       <div className={styles.searchBox}>
          <input
             type="text"
-            placeholder='Search ...'
+            placeholder='Search coin ...'
             value={text}
             onChange={e => setText(e.target.value)} />
          <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
-            <option value="usd">USD</option>
-            <option value="eur">EUR</option>
-            <option value="jpy">JPY</option>
+            <option disabled>Choose Currency</option>
+            <option value="usd">$ USD</option>
+            <option value="eur">Є EUR</option>
+            <option value="jpy">¥ JPY</option>
          </select>
          {(!!coins.length || isLoading) && (
             <div className={styles.searchResult}>
