@@ -17,7 +17,7 @@ function Layout({ children }) {
          </header>
          {children}
          <footer className={styles.footer}>
-            <p>Developed by <a href="https://github.com/thenoroozi">Hamed Noroozi</a></p>
+            <p>Developed by Hamed Noroozi</p>
          </footer>
       </>
    );
